@@ -1,4 +1,4 @@
-export default function reduce(state = [], action) {
+export default function reduce(items = [], action) {
   return [
     {
       id: (Math.random() * 100).toFixed(0),
