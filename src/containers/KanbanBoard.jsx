@@ -27,13 +27,14 @@ class KanbanBoard extends React.Component {
         <div className="col s6">
           <h2>To Do</h2>
           <div style={columnStyle}>
-            { this.props.taskItems ? this.props.taskItems.map((task) => 
-              <Task key={task.id} taskItem={task}></Task>) : <h2>No Tasks Available</h2> }
+            { this.props.taskItems.filter((taskItem) => taskItem.status === 'WIP').map((task) => <Task key={task.id} taskItem={task}></Task>) }
           </div>
         </div>
         <div className="col s6">
           <h2>Done</h2>
-          <div style={columnStyle}></div>
+          <div style={columnStyle}>
+            { this.props.taskItems.filter((taskItem) => taskItem.status === 'Done').map((task) => <Task key={task.id} taskItem={task}></Task>) }
+          </div>
         </div>
       </div>
     );
